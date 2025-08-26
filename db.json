@@ -1,0 +1,49 @@
+{
+  "teams": [
+    {
+      "id": "2",
+      "name": "Team 2",
+      "createdAt": "2025-08-25T21:10:00.000Z",
+      "players": [
+        {
+          "id": 1,
+          "firstName": "Gaspar",
+          "lastName": "Harutyunyan",
+          "createdAt": "2025-08-25T21:11:00.000Z"
+        },
+        {
+          "id": 2,
+          "firstName": "Serj",
+          "lastName": "Tankyandsvsv",
+          "createdAt": "2025-08-25T21:12:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "1756160497153",
+      "name": "team 4",
+      "createdAt": "2025-08-25T22:21:37.153Z",
+      "players": [
+        {
+          "id": 1756160497154,
+          "firstName": "karen",
+          "lastName": "gevorgyan",
+          "createdAt": "2025-08-25T22:21:37.154Z"
+        }
+      ]
+    },
+    {
+      "id": "1756160894361",
+      "name": "team5",
+      "createdAt": "2025-08-25T22:28:14.361Z",
+      "players": [
+        {
+          "id": 1756160894361,
+          "firstName": "aram",
+          "lastName": "martirosyan",
+          "createdAt": "2025-08-25T22:28:14.361Z"
+        }
+      ]
+    }
+  ]
+}
