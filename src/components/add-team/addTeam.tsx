@@ -1,5 +1,5 @@
-import { FC } from "react";
-
+import { FC } from 'react';
+import { useAddTeamMutation, useFetchTeamsQuery } from '../../services/userApi';
 
 interface ITeamOfPlayers {
   teamName: string;
@@ -8,7 +8,6 @@ interface ITeamOfPlayers {
   setPlayerFirstName: (value: string) => void;
   playerLastName: string;
   setPlayerLastName: (value: string) => void;
-  handleAddTeam: () => void;
 }
 
 export const AddTeamOfPlayers: FC<ITeamOfPlayers> = ({
@@ -18,10 +17,31 @@ export const AddTeamOfPlayers: FC<ITeamOfPlayers> = ({
   setPlayerFirstName,
   playerLastName,
   setPlayerLastName,
-  handleAddTeam
 }) => {
+  const { refetch } = useFetchTeamsQuery();
+  const [addTeam] = useAddTeamMutation();
+
+  const handleAddTeam = async () => {
+
+    await addTeam({
+      name: teamName,
+      createdAt: new Date().toISOString(),
+      players: [
+        {
+          id: Date.now(),
+          firstName: playerFirstName,
+          lastName: playerLastName,
+          createdAt: new Date().toISOString(),
+        },
+      ],
+    });
+    refetch();
+    setTeamName('');
+    setPlayerFirstName('');
+    setPlayerLastName('');
+  };
   return (
-    <div className='form'>
+    <div className="form">
       <input
         type="text"
         value={teamName}

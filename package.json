@@ -27,7 +27,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet",
-    "format": "prettier --write 'src/**/*.{js,ts,tsx,json,css,md}'"
+    "format": "prettier --write 'src/**/*.{js,ts,tsx,json,css,md}'",
+    "server": "json-server --watch db.json --port 3004"
   },
   "eslintConfig": {
     "extends": [

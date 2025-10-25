@@ -19,13 +19,13 @@ export const userApi = createApi({
     }),
     updateTeamById: builder.mutation<Team, Team>({
       query: (team) => ({
-        url: `teams/${team.id}`,
+        url: `/teams/${team.id}`,
         method: 'PUT',
         body: team,
       }),
       invalidatesTags: ['Teams'],
     }),
-    removeTeamId: builder.mutation<void, string>({
+    removeTeamId: builder.mutation<void, number>({
       query: (id) => ({
         url: `teams/${id}`,
         method: 'DELETE',

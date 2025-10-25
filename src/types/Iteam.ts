@@ -6,7 +6,7 @@ export interface Player {
 }
 
 export interface Team {
-  id: string;
+  id: number;
   name: string;
   createdAt: string;
   players: Player[];

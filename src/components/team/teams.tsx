@@ -9,12 +9,13 @@ import { UpdateTeamPlayer } from '../update-team/updateTeam';
 import { AddTeamOfPlayers } from '../add-team/addTeam';
 
 import style from './style.module.scss';
+import { Team } from '../../types/Iteam';
 
 const Teams = () => {
   const { data: teams = [], isLoading, error } = useFetchTeamsQuery();
-  const [addTeam] = useAddTeamMutation();
   const [removeItem] = useRemoveTeamIdMutation();
-  const [editingTeamId, setEditingTeamId] = useState<string | null>(null);
+
+  const [editingTeamId, setEditingTeamId] = useState<number | null>(null);
   const [playerFirstName, setPlayerFirstName] = useState('');
   const [playerLastName, setPlayerLastName] = useState('');
   const [teamName, setTeamName] = useState('');
@@ -22,26 +23,7 @@ const Teams = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading teams</div>;
 
-  const handleAddTeam = async () => {
-    await addTeam({
-      id: Date.now().toString(),
-      name: teamName,
-      createdAt: new Date().toISOString(),
-      players: [
-        {
-          id: Date.now(),
-          firstName: playerFirstName,
-          lastName: playerLastName,
-          createdAt: new Date().toISOString(),
-        },
-      ],
-    });
-    setTeamName('');
-    setPlayerFirstName('');
-    setPlayerLastName('');
-  };
-
-  const handleRemoveTeamId = async (id: string) => {
+  const handleRemoveTeamId = async (id: number) => {
     await removeItem(id);
   };
 
@@ -54,20 +36,18 @@ const Teams = () => {
         setPlayerFirstName={setPlayerFirstName}
         playerLastName={playerLastName}
         setPlayerLastName={setPlayerLastName}
-        handleAddTeam={handleAddTeam}
       />
       <div className={style.container_column}>
         <div className={style.container_column_list}>
-          {teams.map((team) => (
+          {teams.map((team: Team) => (
             <div key={team.id} className={style.container_column_list_item}>
-              <span>{team.id}</span>
-              <span>{team.name}</span>
+              <h2>{team.name}</h2>
               <div className={style.container_column_list_item_text}>
                 {team.players.map((p) => (
                   <p
                     key={p.id}
-                    style={{ margin: 0 }}
-                  >{`Player: ${p.firstName} ${p.lastName}`}</p>
+                    className={style.container_column_list_item_text}
+                  >{`Player ${p.id}: ${p.firstName} ${p.lastName}`}</p>
                 ))}
               </div>
               <div className={style.container_column_list_buttons}>

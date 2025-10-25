@@ -14,8 +14,8 @@ button:hover {
 .form {
   width: 100%;
   max-width: 300px;
-  margin: auto;
   height: auto;
+  margin: 0 auto;
   padding: 1.2rem;
   margin-top: 20px;
   display: flex;
@@ -26,12 +26,12 @@ button:hover {
   background-color: #008061;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
-  input {
-    width: 250px;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-  }
-  input::placeholder {
-    padding: 0 10px;
-  }
+input {
+  width: 250px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+}
+input::placeholder {
+  padding: 0 10px;
+}
