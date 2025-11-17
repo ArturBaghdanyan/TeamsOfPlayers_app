@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  useAddTeamMutation,
   useFetchTeamsQuery,
   useRemoveTeamIdMutation,
 } from '../../services/userApi';
@@ -49,14 +48,14 @@ const Teams = () => {
                     className={style.container_column_list_item_text}
                   >{`Player ${p.id}: ${p.firstName} ${p.lastName}`}</p>
                 ))}
-              </div>
-              <div className={style.container_column_list_buttons}>
-                <button onClick={() => setEditingTeamId(team.id)}>
-                  Edit Player
-                </button>
-                <button onClick={() => handleRemoveTeamId(team.id)}>
-                  Remove Player
-                </button>
+                <div className={style.container_column_list_item_text_buttons}>
+                  <button onClick={() => setEditingTeamId(team.id)}>
+                    Edit Player
+                  </button>
+                  <button onClick={() => handleRemoveTeamId(team.id)}>
+                    Remove Player
+                  </button>
+                </div>
               </div>
 
               {editingTeamId === team.id && (

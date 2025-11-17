@@ -12,6 +12,19 @@
           "createdAt": "2025-10-25T18:42:05.370Z"
         }
       ]
+    },
+    {
+      "id": "62b0",
+      "name": "Team 2",
+      "createdAt": "2025-11-17T11:32:56.430Z",
+      "players": [
+        {
+          "id": 1763379176431,
+          "firstName": "John",
+          "lastName": "Smith",
+          "createdAt": "2025-11-17T11:32:56.431Z"
+        }
+      ]
     }
   ]
 }
